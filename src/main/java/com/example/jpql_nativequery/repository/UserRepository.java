@@ -28,12 +28,12 @@ public interface UserRepository extends JpaRepository<User, Long> {
     long countByActiveTrueJPQL();
 
     //Native-query
-    @Query(value = "SELECT * FROM usr WHERE active = true", nativeQuery = true)
+    @Query(value = "SELECT * FROM user WHERE active = true", nativeQuery = true)
     List<User> findByActiveTrueNative();
 
-    @Query(value = "SELECT * FROM usr WHERE username = :username AND active =true", nativeQuery = true)
+    @Query(value = "SELECT * FROM user WHERE username = :username AND active =true", nativeQuery = true)
     List<User> findByUsernameAndActiveTrueNative(@Param("username") String username);
 
-    @Query(value = "SELECT COUNT(*) FROM usr WHERE active = true", nativeQuery = true)
+    @Query(value = "SELECT COUNT(*) FROM user WHERE active = true", nativeQuery = true)
     long countByActiveTrueNative();
 }

@@ -30,8 +30,8 @@ import java.util.List;
                 userRepository.deleteAll();
                 SimpleDateFormat simpleDate = new SimpleDateFormat("yyyy-MM-dd");
                 List<User> users = Arrays.asList(
-                        new User("samira", false, 45000, simpleDate.parse("1995-06-19")),
-                        new User("nima", true, 39900, simpleDate.parse("2002-05-06")),
+                        new User("samira", true, 45000, simpleDate.parse("1995-06-19")),
+                        new User("nima", false, 39900, simpleDate.parse("2002-05-06")),
                         new User("ali", false, 32000, simpleDate.parse("1990-05-06")),
                         new User("reza", true, 35000, simpleDate.parse("2005-05-06")),
                         new User("hani", true, 55000, simpleDate.parse("2006-05-06")),
