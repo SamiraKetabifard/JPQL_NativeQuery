@@ -1,0 +1,13 @@
+package com.example.jpql_nativequery;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class JpqlNativeQueryApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(JpqlNativeQueryApplication.class, args);
+    }
+
+}
