@@ -19,31 +19,31 @@ public class UserService {
         List<User> activeUsers = userRepository.findByActiveTrue();
         return userMapper.toDtoList(activeUsers);
     }
-    public List<UserDto> getActiveUsersJPQL() {
-        List<User> activeUsers = userRepository.findByActiveTrueJPQL();
-        return userMapper.toDtoList(activeUsers);
-    }
-    public List<UserDto> getActiveUsersNative() {
-        List<User> activeUsers = userRepository.findByActiveTrueNative();
-        return userMapper.toDtoList(activeUsers);
-    }
     public List<UserDto> getUsernameAndActiveTrueJPA(String username) {
         List<User> users = userRepository.findByUsernameAndActiveTrue(username);
-        return userMapper.toDtoList(users);
-    }
-    public List<UserDto> getUsernameAndActiveTrueJPQL(String username) {
-        List<User> users = userRepository.findByUsernameAndActiveTrueJPQL(username);
-        return userMapper.toDtoList(users);
-    }
-    public List<UserDto> getUsernameAndActiveTrueNative(String username) {
-        List<User> users = userRepository.findByUsernameAndActiveTrueNative(username);
         return userMapper.toDtoList(users);
     }
     public long getCountActiveUsers() {
         return userRepository.countByActiveTrue();
     }
+    public List<UserDto> getActiveUsersJPQL() {
+        List<User> activeUsers = userRepository.findByActiveTrueJPQL();
+        return userMapper.toDtoList(activeUsers);
+    }
+    public List<UserDto> getUsernameAndActiveTrueJPQL(String username) {
+        List<User> users = userRepository.findByUsernameAndActiveTrueJPQL(username);
+        return userMapper.toDtoList(users);
+    }
     public long getCountActiveUsersJPQL() {
         return userRepository.countByActiveTrueJPQL();
+    }
+    public List<UserDto> getActiveUsersNative() {
+        List<User> activeUsers = userRepository.findByActiveTrueNative();
+        return userMapper.toDtoList(activeUsers);
+    }
+    public List<UserDto> getUsernameAndActiveTrueNative(String username) {
+        List<User> users = userRepository.findByUsernameAndActiveTrueNative(username);
+        return userMapper.toDtoList(users);
     }
     public long getCountActiveUsersNative() {
         return userRepository.countByActiveTrueNative();
