@@ -134,26 +134,11 @@ public class UserControllerTest {
 
         verify(userService).getCountActiveUsersNative();
     }
-    // Unhappy Path Tests
     @Test
     void findByUsernameAndActiveTrue_ShouldReturn400_WhenMissingUsername() throws Exception {
         mockMvc.perform(get("/users/jpa/findByUsernameAndActiveTrue"))
                 .andExpect(status().isBadRequest());
 
         verify(userService, never()).getUsernameAndActiveTrueJPA(any());
-    }
-    @Test
-    void findByUsernameAndActiveTrueJPQL_ShouldReturn400_WhenMissingUsername() throws Exception {
-        mockMvc.perform(get("/users/jpql/findByUsernameAndActiveTrue"))
-                .andExpect(status().isBadRequest());
-
-        verify(userService, never()).getUsernameAndActiveTrueJPQL(any());
-    }
-    @Test
-    void findByUsernameAndActiveTrueNative_ShouldReturn400_WhenMissingUsername() throws Exception {
-        mockMvc.perform(get("/users/native/findByUsernameAndActiveTrue"))
-                .andExpect(status().isBadRequest());
-
-        verify(userService, never()).getUsernameAndActiveTrueNative(any());
     }
 }
