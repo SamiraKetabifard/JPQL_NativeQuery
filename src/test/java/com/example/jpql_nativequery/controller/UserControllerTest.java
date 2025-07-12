@@ -36,7 +36,7 @@ public class UserControllerTest {
         mockMvc = MockMvcBuilders.standaloneSetup(userController).build();
 
         testUser = new UserDto();
-        testUser.setUsername("testUser");
+        testUser.setUsername("samira");
         testUsers = Collections.singletonList(testUser);
     }
     // Happy Path Tests
@@ -47,7 +47,7 @@ public class UserControllerTest {
         mockMvc.perform(get("/users/jpa/active")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].username").value("testUser"));
+                .andExpect(jsonPath("$[0].username").value("samira"));
 
         verify(userService).getActiveUsersJPA();
     }
@@ -67,42 +67,42 @@ public class UserControllerTest {
 
         mockMvc.perform(get("/users/native/active"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].username").value("testUser"));
+                .andExpect(jsonPath("$[0].username").value("samira"));
 
         verify(userService).getActiveUsersNative();
     }
     @Test
     void findByUsernameAndActiveTrue_ShouldReturn200() throws Exception {
-        when(userService.getUsernameAndActiveTrueJPA("testUser")).thenReturn(testUsers);
+        when(userService.getUsernameAndActiveTrueJPA("samira")).thenReturn(testUsers);
 
         mockMvc.perform(get("/users/jpa/findByUsernameAndActiveTrue")
-                        .param("username", "testUser"))
+                        .param("username", "samira"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].username").value("testUser"));
+                .andExpect(jsonPath("$[0].username").value("samira"));
 
-        verify(userService).getUsernameAndActiveTrueJPA("testUser");
+        verify(userService).getUsernameAndActiveTrueJPA("samira");
     }
     @Test
     void findByUsernameAndActiveTrueJPQL_ShouldReturn200() throws Exception {
-        when(userService.getUsernameAndActiveTrueJPQL("testUser")).thenReturn(testUsers);
+        when(userService.getUsernameAndActiveTrueJPQL("samira")).thenReturn(testUsers);
 
         mockMvc.perform(get("/users/jpql/findByUsernameAndActiveTrue")
-                        .param("username", "testUser"))
+                        .param("username", "samira"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].username").value("testUser"));
+                .andExpect(jsonPath("$[0].username").value("samira"));
 
-        verify(userService).getUsernameAndActiveTrueJPQL("testUser");
+        verify(userService).getUsernameAndActiveTrueJPQL("samira");
     }
     @Test
     void findByUsernameAndActiveTrueNative_ShouldReturn200() throws Exception {
-        when(userService.getUsernameAndActiveTrueNative("testUser")).thenReturn(testUsers);
+        when(userService.getUsernameAndActiveTrueNative("samira")).thenReturn(testUsers);
 
         mockMvc.perform(get("/users/native/findByUsernameAndActiveTrue")
-                        .param("username", "testUser"))
+                        .param("username", "samira"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].username").value("testUser"));
+                .andExpect(jsonPath("$[0].username").value("samira"));
 
-        verify(userService).getUsernameAndActiveTrueNative("testUser");
+        verify(userService).getUsernameAndActiveTrueNative("samira");
     }
     @Test
     void countActiveUsersJPA_ShouldReturn200() throws Exception {

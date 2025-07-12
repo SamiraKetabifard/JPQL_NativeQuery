@@ -34,8 +34,7 @@ public class UserServiceTest {
 
         when(userRepository.findByActiveTrue()).thenReturn(mockActiveUsers);
         when(userMapper.toDtoList(mockActiveUsers)).thenReturn(
-                Arrays.asList(new UserDto(), new UserDto())
-        );
+                Arrays.asList(new UserDto(), new UserDto()));
         //act
         List<UserDto> result = userService.getActiveUsersJPA();
         //assert
