@@ -9,5 +9,6 @@ import java.util.List;
 public interface UserMapper {
 
     List<UserDto> toDtoList(List<User> users);
+
 }
 
